@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:"roboto", sans-serif;
+  background:#333;
+}
+
+a{
+  text-decoration: none;
+  color:#f4f4f4;
+  background:#333;
+}
+
+.container{
+  width:800px;;
+  margin:auto;
+  background:#f4f4f4;
+  color:#333;
+  padding:50px;
+  margin-top:70px;
+  border-radius:10px;
+  box-shadow:3px 3px 20px rgb(68, 68, 68);
+}
+
+/* Input Field */
+.entry{
+  display: flex;
+  flex-flow:column;
+  margin-bottom:50px;
+}
+
+.entry label{
+  text-align:center;
+  font-size:1.8rem;
+}
+
+.entry #input{
+  width:500px;
+  height:30px;
+  margin:auto;margin-top:10px;
+  border-radius:5px;
+}
+
+.entry #submit{
+  width:70px;
+  margin:auto;
+  margin-top:10px;
+  font-size:1.5rem;
+  background:#333;
+  color:#f4f4f4;
+  border:none;
+  border-radius:5px;
+} 
+
+.entry #submit:hover{
+  cursor: pointer;
+  background:rgb(0, 255, 128);
+  color:#333;  
+}
+
+/* Filter and List */
+
+.filter{
+  display:flex;
+  flex-flow:column;
+  margin-bottom:30px;
+  border-top:#333 solid 5px;
+  padding:5px;
+  border-radius:5px;
+}
+
+.filter label{
+  text-align:center;
+  font-size:1.7rem;
+  margin-top:5px;
+}
+
+.filter input{
+  width:500px;
+  height:30px;
+  margin:auto;
+  border-radius:5px;
+  margin-top:10px;
+}
+
+/* To-Do's */
+
+.activity{
+  width:600px;
+  margin:auto;
+}
+.activity p{
+  text-align:center;
+  font-size:1.5rem;
+  margin:10px 0;
+}
+
+li{
+  display:inline-block;
+}
+
+ul i,ul input{
+  float:right;
+}
+
+ul{
+  padding-top:5px;
+  font-size:1.4rem;
+}
+
+.collection-item{
+  border-top:#333 1px solid;
+  padding:10px;
+}
+
+ul i{
+  margin-left:10px;
+}
+
+ul input{
+  margin-left:10px;
+}
+
+ul i:hover{
+  color:rgb(231, 0, 0);
+}
+
+input[type="checkbox"]{
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+ul div:last-child{
+  margin-bottom:20px;
+}
+
+.activity a{
+  color:#f4f4f4;
+  background:#333;
+  padding:5px;
+  border-radius:5px;
+  margin:auto;
+}
+
+
+
+
+
