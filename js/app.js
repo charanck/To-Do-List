@@ -140,6 +140,7 @@ function checked(e){
       e.target.parentElement.style.color="#333";
     }
   }
+  storingcheckedinls(e.target.checked);
 }
 
 // filter an searching list elements
