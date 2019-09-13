@@ -98,3 +98,21 @@ function checked(e){
   }
 }
 
+// filter an searching list elements
+
+filter.addEventListener("keyup",search);
+
+function search(e){
+const text=e.target.value.toLowerCase();
+document.querySelectorAll(".text")
+.forEach(function(task){
+  const item =task.textContent;
+  if(item.toLowerCase().indexOf(text) != -1){
+  task.parentElement.style.display ="block";
+}else{
+  task.parentElement.style.display ="none";
+}
+});
+e.preventDefault();
+};
+
