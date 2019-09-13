@@ -7,6 +7,45 @@ const clear = document.querySelector(".activity a");
 const list= document.querySelector(".collection");
 
 
+//Getting from local storage
+document.addEventListener("DOMContentLoaded",gettasks);
+
+function gettasks(){
+  let tasks;
+  if(localStorage.getItem("tasks") === null){
+    tasks =[];
+  }else{
+    tasks =JSON.parse(localStorage.getItem('tasks'));
+  }
+
+  tasks.forEach(function(task){
+    // Creating li
+    const li = document.createElement("li");
+    li.className="text";
+    li.textContent=task;
+
+    //Creating the icon
+    const i =document.createElement("i");
+    i.className="fas fa-trash-alt";
+
+    //Creating the checkbox
+    const check=document.createElement("input");
+    check.type="checkbox";
+    check.id="checkbox"
+
+    //Creating collection
+    const collection =document.createElement("div");
+    collection.className="collection-item";
+    collection.appendChild(li);
+    collection.appendChild(i);
+    collection.appendChild(check);
+
+    //Appending to main collection
+    list.appendChild(collection);
+  })
+}
+
+
 // Adding The Input To The List
 
 add.addEventListener("click",addtask);
@@ -39,6 +78,9 @@ function addtask(e){
     //Appending to main collection
     list.appendChild(collection);
 
+    //Storing List Elements In Local Storage
+    storinglistelementsinls(input.value);
+
     //Clearing the input field
     input.value = "";
 
@@ -55,6 +97,7 @@ function removetask(e){
   if(e.target.className === "fas fa-trash-alt"){
     if(confirm("Are you sure")){
       e.target.parentElement.remove();
+      removetaskfromlocalstorage(e.target.parentElement);
     }else{
     }
   }
@@ -79,6 +122,7 @@ function clearall(){
     nil.firstChild.remove();
   }
   }
+  cleartasksfromlocalstorage();
 };
 
 // Task completed indication
@@ -116,3 +160,40 @@ document.querySelectorAll(".text")
 e.preventDefault();
 };
 
+//Storing data in LS
+
+function storinglistelementsinls(task){  
+  let tasks;
+  if(localStorage.getItem('tasks') === null){
+    tasks=[];
+  }else{
+    tasks = JSON.parse(localStorage.getItem('tasks'))
+  }
+  tasks.push(task);
+  localStorage.setItem("tasks",JSON.stringify(tasks));
+}
+
+
+
+//Removing from ls
+
+function removetaskfromlocalstorage(taskitem){
+  let tasks;
+  if(localStorage.getItem('tasks') === null){
+    tasks =[];
+  }else{
+    tasks =JSON.parse(localStorage.getItem('tasks'));
+  }
+  tasks.forEach(function(task,index){
+    if(taskitem.textContent === task){
+      tasks.splice(index, 1);
+    }
+  });
+  localStorage.setItem('tasks',JSON.stringify(tasks));
+}
+
+//Clearing form LS
+
+function cleartasksfromlocalstorage(){
+  localStorage.clear();
+}
